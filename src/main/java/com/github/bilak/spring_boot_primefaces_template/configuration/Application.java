@@ -19,7 +19,7 @@ import javax.servlet.DispatcherType;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"com.github.bilak.spring_boot_primefaces_template.view"})
+@ComponentScan(basePackages = {"com.github.bilak.spring_boot_primefaces_template.view", "com.github.hxgong.spring_boot_primefaces_template.service"})
 public class Application extends SpringBootServletInitializer {
 
 
