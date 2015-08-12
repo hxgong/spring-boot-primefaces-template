@@ -13,6 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 /**
  * Created by lvasek on 17/04/15.
@@ -48,13 +50,26 @@ public class Application extends SpringBootServletInitializer {
 
     @Bean
     public ServletContextInitializer servletContextInitializer() {
-        return servletContext -> {
-            servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
-            servletContext.setInitParameter("primefaces.THEME", "bootstrap");
-            servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
-            servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
-            servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
-            servletContext.setInitParameter("primefaces.UPLOADER", "commons");
-        };
+//        return servletContext -> {
+//            servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
+//            servletContext.setInitParameter("primefaces.THEME", "bootstrap");
+//            servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
+//            servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
+//            servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
+//            servletContext.setInitParameter("primefaces.UPLOADER", "commons");
+//        };
+    	return new ServletContextInitializer() {
+
+			@Override
+			public void onStartup(ServletContext servletContext) throws ServletException {
+	            servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
+	            servletContext.setInitParameter("primefaces.THEME", "bootstrap");
+	            servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
+	            servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
+	            servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
+	            servletContext.setInitParameter("primefaces.UPLOADER", "commons");
+				
+			}
+    	};
     }
 }
