@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
+group = 'com.github.bilak'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+
+repositories {
+        
+     maven { url "http://repository.primefaces.org" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.2.4.RELEASE'
+    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
+    compile group: 'com.sun.faces', name: 'jsf-api', version:'2.2.11'
+    compile group: 'com.sun.faces', name: 'jsf-impl', version:'2.2.11'
+    compile group: 'org.primefaces', name: 'primefaces', version:'5.2'
+    compile group: 'org.primefaces.themes', name: 'all-themes', version:'1.0.10'
+    compile group: 'net.bootsfaces', name: 'bootsfaces', version:'0.6.6'
+    compile group: 'commons-io', name: 'commons-io', version:'2.2'
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version:'1.3'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.2.4.RELEASE'
+    providedCompile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version:'1.2.4.RELEASE'
+    providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version:'8.0.20'
+    providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-logging-juli', version:'8.0.20'
+    providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version:'8.0.20'
+}
